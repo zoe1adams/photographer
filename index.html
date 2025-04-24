@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
+  <base href="/photographer/"> <!-- Required for GitHub Pages pathing -->
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>VISION — Experimental Portfolio</title>
 
@@ -9,24 +10,24 @@
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="styles/style.css" />
 
-  <!-- GSAP for animation -->
+  <!-- GSAP & ScrollTrigger -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
 </head>
 <body>
 
-  <!-- Polka Dot Background Layer -->
+  <!-- Animated Polka Dot Background -->
   <div class="polka-bg"></div>
 
   <!-- Custom Cursor -->
   <div id="cursor" class="custom-cursor"></div>
 
-  <!-- Ambient Audio -->
+  <!-- Background Music -->
   <audio id="bg-music" loop>
     <source src="assets/audio/ambient.mp3" type="audio/mp3" />
   </audio>
 
-  <!-- Toggle Buttons -->
+  <!-- Toggle Controls -->
   <button id="theme-toggle">🌙</button>
   <button id="motion-toggle">✨</button>
   <button id="audio-toggle">🔊</button>
@@ -34,10 +35,8 @@
   <!-- HERO Section -->
   <section class="panel panel-hero" id="hero">
     <div class="intro-content">
-      <h1 class="hero-title">
-        VISION<br><span>PORTFOLIO</span>
-      </h1>
-      <p class="hero-subtext">A fluid journal of experimental media, crafted in motion.</p>
+      <h1 class="hero-title">VISION<br><span>PORTFOLIO</span></h1>
+      <p class="hero-subtext">A digital gallery of movement, feeling, and form.</p>
     </div>
   </section>
 
@@ -46,14 +45,13 @@
     <div class="content">
       <h2>⸻ Philosophy</h2>
       <p>
-        This is not a gallery. It’s a living narrative.<br>
-        A body of work shaped by intuition, movement, and emotion.<br>
-        Designed to feel, not to follow convention.
+        This is not a template. It’s a living visual journal.<br>
+        Designed to feel, not follow. Built for expression in motion.
       </p>
     </div>
   </section>
 
-  <!-- Gallery Section -->
+  <!-- Work Section -->
   <section class="panel panel-gallery" id="works">
     <div class="section-header">
       <h2>⸻ Selected Works</h2>
@@ -74,15 +72,15 @@
     </video>
     <div class="overlay-text">
       <h2>⸻ Behind the Vision</h2>
-      <p>Real moments. Raw footage. How the magic happens.</p>
+      <p>Unfiltered. Unstaged. Just how it happens.</p>
     </div>
   </section>
 
-  <!-- Contact Section -->
+  <!-- Contact Footer -->
   <section class="panel panel-footer" id="contact">
     <div class="footer-content">
       <h2>⸻ Let’s Collaborate</h2>
-      <p>Available for creative partnerships, commissions, and storytelling campaigns.</p>
+      <p>Looking for dreamers, creators, and rebels.</p>
       <p class="contact-info">
         <a href="mailto:you@example.com">you@example.com</a> |
         <a href="https://instagram.com/yourhandle" target="_blank">@yourhandle</a>
@@ -90,7 +88,7 @@
     </div>
   </section>
 
-  <!-- Gallery Modal (FLIP) -->
+  <!-- Gallery Modal (FLIP-style) -->
   <div id="gallery-modal" class="gallery-modal">
     <div class="modal-content">
       <img id="modal-img" src="" alt="Preview" />
@@ -101,6 +99,7 @@
   <!-- Scripts -->
   <script src="assets/js/main.js"></script>
   <script src="assets/js/scroll.js"></script>
-  <script src="assets/js/background.js"></script> <!-- Optional WebGL mesh -->
+  <script src="assets/js/background.js"></script>
+
 </body>
 </html>
