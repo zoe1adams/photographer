@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <base href="/photographer/"> <!-- Required for GitHub Pages pathing -->
+  <base href="/photographer/">
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>VISION — Experimental Portfolio</title>
 
@@ -10,48 +10,55 @@
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="styles/style.css" />
 
-  <!-- GSAP & ScrollTrigger -->
+  <!-- GSAP -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
 </head>
 <body>
 
-  <!-- Animated Polka Dot Background -->
+  <!-- ✦ Polka Dot Background Layer -->
   <div class="polka-bg"></div>
 
-  <!-- Custom Cursor -->
+  <!-- ✦ Custom Cursor -->
   <div id="cursor" class="custom-cursor"></div>
 
-  <!-- Background Music -->
+  <!-- ✦ Background Audio -->
   <audio id="bg-music" loop>
     <source src="assets/audio/ambient.mp3" type="audio/mp3" />
   </audio>
 
-  <!-- Toggle Controls -->
+  <!-- ✦ Toggle Buttons -->
   <button id="theme-toggle">🌙</button>
   <button id="motion-toggle">✨</button>
   <button id="audio-toggle">🔊</button>
 
-  <!-- HERO Section -->
+  <!-- ✦ HERO SECTION (Video + Text) -->
   <section class="panel panel-hero" id="hero">
-    <div class="intro-content">
-      <h1 class="hero-title">VISION<br><span>PORTFOLIO</span></h1>
-      <p class="hero-subtext">A digital gallery of movement, feeling, and form.</p>
+    <video class="hero-video" autoplay muted loop playsinline>
+      <source src="assets/videos/hero-bg.mp4" type="video/mp4" />
+      Your browser does not support the video tag.
+    </video>
+    <div class="intro-overlay">
+      <h1 class="hero-title animate-text">
+        A Vision<br>In Motion
+      </h1>
+      <p class="hero-subtext animate-fade">Where light collides with memory.</p>
     </div>
   </section>
 
-  <!-- Philosophy Section -->
+  <!-- ✦ PHILOSOPHY -->
   <section class="panel panel-text philosophy" id="philosophy">
     <div class="content">
       <h2>⸻ Philosophy</h2>
       <p>
-        This is not a template. It’s a living visual journal.<br>
-        Designed to feel, not follow. Built for expression in motion.
+        This is not a template.<br>
+        It’s a living visual journal.<br>
+        Designed to feel, not follow.
       </p>
     </div>
   </section>
 
-  <!-- Work Section -->
+  <!-- ✦ GALLERY -->
   <section class="panel panel-gallery" id="works">
     <div class="section-header">
       <h2>⸻ Selected Works</h2>
@@ -64,11 +71,10 @@
     </div>
   </section>
 
-  <!-- Behind-the-Scenes Section -->
+  <!-- ✦ BEHIND THE SCENES VIDEO -->
   <section class="panel panel-video" id="bts">
     <video class="bts-video" autoplay muted loop playsinline>
       <source src="assets/videos/behind-the-scenes.mp4" type="video/mp4" />
-      Your browser does not support the video tag.
     </video>
     <div class="overlay-text">
       <h2>⸻ Behind the Vision</h2>
@@ -76,11 +82,11 @@
     </div>
   </section>
 
-  <!-- Contact Footer -->
+  <!-- ✦ CONTACT FOOTER -->
   <section class="panel panel-footer" id="contact">
     <div class="footer-content">
       <h2>⸻ Let’s Collaborate</h2>
-      <p>Looking for dreamers, creators, and rebels.</p>
+      <p>For creators, dreamers, rebels. Let’s build something unforgettable.</p>
       <p class="contact-info">
         <a href="mailto:you@example.com">you@example.com</a> |
         <a href="https://instagram.com/yourhandle" target="_blank">@yourhandle</a>
@@ -88,7 +94,7 @@
     </div>
   </section>
 
-  <!-- Gallery Modal (FLIP-style) -->
+  <!-- ✦ GALLERY MODAL (FLIP) -->
   <div id="gallery-modal" class="gallery-modal">
     <div class="modal-content">
       <img id="modal-img" src="" alt="Preview" />
@@ -96,7 +102,7 @@
     </div>
   </div>
 
-  <!-- Scripts -->
+  <!-- ✦ Scripts -->
   <script src="assets/js/main.js"></script>
   <script src="assets/js/scroll.js"></script>
   <script src="assets/js/background.js"></script>
