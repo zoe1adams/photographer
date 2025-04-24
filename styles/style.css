@@ -1,26 +1,26 @@
-/* === CSS VARIABLES === */
+/* === VARIABLES === */
 :root {
   --bg: #000;
   --text: #fff;
   --accent: #888;
   --shadow: rgba(255, 255, 255, 0.1);
-  --highlight: #ffffff;
+  --highlight: #fff;
 
-  --light-bg: #f6f6f6;
+  --light-bg: #f8f8f8;
   --light-text: #111;
+  --light-accent: #333;
   --light-shadow: rgba(0, 0, 0, 0.1);
-  --transition: 0.4s ease;
 }
 
 body.light {
   --bg: var(--light-bg);
   --text: var(--light-text);
-  --accent: #333;
+  --accent: var(--light-accent);
   --shadow: var(--light-shadow);
   --highlight: #000;
 }
 
-/* === GLOBAL RESET === */
+/* === RESET === */
 * {
   margin: 0;
   padding: 0;
@@ -33,24 +33,47 @@ html, body {
   color: var(--text);
   font-family: 'Space Grotesk', sans-serif;
   scroll-behavior: smooth;
-  transition: background var(--transition), color var(--transition);
   overflow-x: hidden;
+  transition: background 0.4s ease, color 0.4s ease;
+}
+
+/* === ANIMATED POLKA BACKGROUND === */
+.polka-bg {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: -2;
+  pointer-events: none;
+  background-image: radial-gradient(circle, var(--text) 1px, transparent 1px);
+  background-size: 40px 40px;
+  opacity: 0;
+  animation: polkaFade 14s infinite;
+}
+
+@keyframes polkaFade {
+  0%, 100% { opacity: 0; transform: translate(0, 0); }
+  25% { opacity: 0.06; transform: translate(15px, 5px); }
+  50% { opacity: 0.15; transform: translate(-10px, -5px); }
+  75% { opacity: 0.08; transform: translate(5px, -15px); }
 }
 
 /* === CUSTOM CURSOR === */
 .custom-cursor {
   position: fixed;
+  top: 0; left: 0;
   width: 20px;
   height: 20px;
-  border-radius: 50%;
   background: var(--highlight);
+  border-radius: 50%;
   mix-blend-mode: difference;
   pointer-events: none;
   z-index: 9999;
+  transform: translate(-50%, -50%);
   transition: width 0.2s, height 0.2s, transform 0.1s ease;
 }
 
-/* === PANEL STRUCTURE === */
+/* === PANEL STYLING === */
 .panel {
   height: 100vh;
   padding: 5vh 8vw;
@@ -58,29 +81,8 @@ html, body {
   justify-content: center;
   align-items: center;
   position: relative;
-  overflow: hidden;
   perspective: 1000px;
-  transition: background var(--transition);
-}
-
-/* === MOVING NOISE LAYER === */
-body::before {
-  content: "";
-  position: fixed;
-  top: 0; left: 0;
-  width: 100vw;
-  height: 100vh;
-  background: url('https://grainy-gradients.vercel.app/noise.svg');
-  z-index: 0;
-  opacity: 0.07;
-  animation: grain 12s linear infinite;
-  pointer-events: none;
-}
-
-@keyframes grain {
-  0% { transform: translate(0, 0); }
-  50% { transform: translate(-30px, -15px); }
-  100% { transform: translate(0, 0); }
+  overflow: hidden;
 }
 
 /* === HERO === */
@@ -88,21 +90,20 @@ body::before {
   flex-direction: column;
   text-align: center;
 }
-
 .hero-title {
   font-size: 4rem;
+  text-transform: uppercase;
   letter-spacing: 0.08em;
   color: var(--highlight);
-  text-transform: uppercase;
-  transform: rotateX(12deg);
-  text-shadow: 0 8px 24px var(--shadow);
+  transform: rotateX(10deg);
+  text-shadow: 0 6px 20px var(--shadow);
 }
 .hero-subtext {
   margin-top: 1rem;
   color: var(--accent);
 }
 
-/* === TEXT SECTIONS === */
+/* === TEXT PANELS === */
 .panel-text h2 {
   font-size: 2rem;
   margin-bottom: 1rem;
@@ -110,12 +111,12 @@ body::before {
 .panel-text p {
   font-size: 1.1rem;
   max-width: 600px;
-  color: var(--accent);
   text-align: center;
+  color: var(--accent);
   line-height: 1.6;
 }
 
-/* === GALLERY GRID === */
+/* === GALLERY === */
 .gallery-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
@@ -126,32 +127,32 @@ body::before {
   background-position: center;
   aspect-ratio: 3/4;
   border-radius: 16px;
-  transform-origin: center;
   transition: transform 0.4s ease, box-shadow 0.4s ease;
+  transform-origin: center;
   cursor: pointer;
 }
 .gallery-item:hover {
-  transform: scale(1.03) rotateX(5deg);
-  box-shadow: 0 0 20px var(--shadow);
+  transform: scale(1.03) rotateX(6deg);
+  box-shadow: 0 0 25px var(--shadow);
 }
 
-/* === FLIP MODAL === */
+/* === MODAL === */
 .gallery-modal {
   display: none;
   position: fixed;
   top: 0; left: 0;
   width: 100vw;
   height: 100vh;
-  background: rgba(0,0,0,0.92);
+  background: rgba(0, 0, 0, 0.92);
   justify-content: center;
   align-items: center;
   z-index: 10000;
 }
 .modal-content {
+  position: relative;
   max-width: 90%;
   max-height: 90%;
-  position: relative;
-  animation: modalIn 0.4s ease forwards;
+  animation: zoomIn 0.4s ease forwards;
 }
 #modal-img {
   width: 100%;
@@ -165,44 +166,15 @@ body::before {
   color: var(--text);
   cursor: pointer;
 }
-
-@keyframes modalIn {
-  from { transform: scale(0.8); opacity: 0; }
-  to   { transform: scale(1); opacity: 1; }
+@keyframes zoomIn {
+  from { transform: scale(0.9); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
 }
 
-/* === TOGGLE CONTROLS === */
-#theme-toggle, #motion-toggle, #audio-toggle {
-  position: fixed;
-  bottom: 1rem;
-  right: 1rem;
-  background: transparent;
-  border: 2px solid var(--text);
-  color: var(--text);
-  padding: 0.5rem;
-  border-radius: 10px;
-  margin-top: 0.5rem;
-  font-size: 1rem;
-  cursor: pointer;
-  z-index: 10001;
-  transition: all 0.3s ease;
-}
-#motion-toggle {
-  right: 1rem;
-  bottom: 4rem;
-}
-#audio-toggle {
-  right: 1rem;
-  bottom: 7rem;
-}
-#theme-toggle:hover, #motion-toggle:hover, #audio-toggle:hover {
-  background: var(--text);
-  color: var(--bg);
-}
-
-/* === VIDEO === */
+/* === VIDEO PANEL === */
 .panel-video {
-  position: relative;
+  padding: 0;
+  overflow: hidden;
 }
 .bts-video {
   width: 100%;
@@ -212,20 +184,67 @@ body::before {
 }
 .overlay-text {
   position: absolute;
-  top: 50%;
-  left: 50%;
+  top: 50%; left: 50%;
   transform: translate(-50%, -50%);
+  color: var(--text);
   text-align: center;
 }
 
-/* === MOBILE OPTIMIZATION === */
+/* === FOOTER === */
+.panel-footer {
+  background: var(--bg);
+  text-align: center;
+}
+.footer-content h2 {
+  font-size: 1.8rem;
+  margin-bottom: 1rem;
+}
+.footer-content p {
+  font-size: 1rem;
+  color: var(--accent);
+}
+.contact-info a {
+  color: var(--text);
+  font-weight: bold;
+  text-decoration: none;
+}
+.contact-info a:hover {
+  text-decoration: underline;
+}
+
+/* === TOGGLE BUTTONS === */
+#theme-toggle, #motion-toggle, #audio-toggle {
+  position: fixed;
+  bottom: 1rem;
+  right: 1rem;
+  margin-top: 0.5rem;
+  font-size: 1rem;
+  padding: 0.4rem 0.6rem;
+  background: transparent;
+  border: 2px solid var(--text);
+  color: var(--text);
+  border-radius: 10px;
+  cursor: pointer;
+  z-index: 10001;
+  transition: all 0.3s ease;
+}
+#motion-toggle { bottom: 4rem; }
+#audio-toggle  { bottom: 7rem; }
+#theme-toggle:hover,
+#motion-toggle:hover,
+#audio-toggle:hover {
+  background: var(--text);
+  color: var(--bg);
+}
+
+/* === MOBILE === */
 @media (max-width: 768px) {
-  .panel {
-    padding: 4vh 5vw;
-  }
   .hero-title {
     font-size: 2.5rem;
     transform: none;
+  }
+  .panel {
+    padding: 4vh 6vw;
   }
   .gallery-grid {
     grid-template-columns: 1fr 1fr;
@@ -236,7 +255,7 @@ body::before {
   }
   #theme-toggle, #motion-toggle, #audio-toggle {
     font-size: 0.85rem;
-    padding: 0.4rem;
-    border-radius: 8px;
+    padding: 0.3rem;
+    border-radius: 6px;
   }
 }
