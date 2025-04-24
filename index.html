@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>VISION — Experimental Portfolio</title>
+
+  <!-- Fonts & Styles -->
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles/style.css" />
+
+  <!-- GSAP for animation -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+</head>
+<body>
+
+  <!-- Custom Cursor -->
+  <div id="cursor" class="custom-cursor"></div>
+
+  <!-- Audio Track (Optional) -->
+  <audio id="bg-music" loop>
+    <source src="assets/audio/ambient.mp3" type="audio/mp3">
+  </audio>
+
+  <!-- Theme & FX Toggles -->
+  <button id="theme-toggle">🌙</button>
+  <button id="motion-toggle">✨</button>
+  <button id="audio-toggle">🔊</button>
+
+  <!-- Hero Panel -->
+  <section class="panel panel-hero" id="hero">
+    <div class="intro-content">
+      <h1 class="hero-title">
+        VISION<br><span>PORTFOLIO</span>
+      </h1>
+      <p class="hero-subtext">A fluid journal of experimental media, crafted in motion.</p>
+    </div>
+  </section>
+
+  <!-- Philosophy Panel -->
+  <section class="panel panel-text philosophy" id="philosophy">
+    <div class="content">
+      <h2>⸻ Philosophy</h2>
+      <p>
+        My work challenges traditional portfolios.<br>
+        It moves, it breathes, it evolves as you scroll.<br>
+        Inspired by motion, memory, and immersion.<br>
+        Created not to display, but to feel.
+      </p>
+    </div>
+  </section>
+
+  <!-- Gallery Panel -->
+  <section class="panel panel-gallery" id="works">
+    <div class="section-header">
+      <h2>⸻ Selected Works</h2>
+    </div>
+    <div class="gallery-grid">
+      <div class="gallery-item" style="background-image: url('assets/images/photo1.jpg');"></div>
+      <div class="gallery-item" style="background-image: url('assets/images/photo2.jpg');"></div>
+      <div class="gallery-item" style="background-image: url('assets/images/photo3.jpg');"></div>
+      <div class="gallery-item" style="background-image: url('assets/images/photo4.jpg');"></div>
+    </div>
+  </section>
+
+  <!-- Behind-the-Scenes Video Panel -->
+  <section class="panel panel-video" id="bts">
+    <video class="bts-video" autoplay muted loop playsinline>
+      <source src="assets/videos/behind-the-scenes.mp4" type="video/mp4" />
+      Your browser does not support the video tag.
+    </video>
+    <div class="overlay-text">
+      <h2>⸻ Behind the Vision</h2>
+      <p>Real moments. Raw footage. How the magic happens.</p>
+    </div>
+  </section>
+
+  <!-- Contact / Footer Panel -->
+  <section class="panel panel-footer" id="contact">
+    <div class="footer-content">
+      <h2>⸻ Let’s Collaborate</h2>
+      <p>Whether you're a creative, a brand, or a dreamer —<br>I'm open to projects, dialogue, and wild ideas.</p>
+      <p class="contact-info">
+        <a href="mailto:you@example.com">you@example.com</a> &nbsp; | &nbsp; <a href="https://instagram.com/yourhandle" target="_blank">@yourhandle</a>
+      </p>
+    </div>
+  </section>
+
+  <!-- Modal for FLIP Gallery View -->
+  <div id="gallery-modal" class="gallery-modal">
+    <div class="modal-content">
+      <img id="modal-img" src="" alt="Preview" />
+      <span id="modal-close">&times;</span>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="assets/js/main.js"></script>
+  <script src="assets/js/scroll.js"></script>
+
+</body>
+</html>
