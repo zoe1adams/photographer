@@ -15,20 +15,23 @@
 </head>
 <body>
 
+  <!-- Polka Dot Background Layer -->
+  <div class="polka-bg"></div>
+
   <!-- Custom Cursor -->
   <div id="cursor" class="custom-cursor"></div>
 
-  <!-- Audio Track (Optional) -->
+  <!-- Ambient Audio -->
   <audio id="bg-music" loop>
-    <source src="assets/audio/ambient.mp3" type="audio/mp3">
+    <source src="assets/audio/ambient.mp3" type="audio/mp3" />
   </audio>
 
-  <!-- Theme & FX Toggles -->
+  <!-- Toggle Buttons -->
   <button id="theme-toggle">🌙</button>
   <button id="motion-toggle">✨</button>
   <button id="audio-toggle">🔊</button>
 
-  <!-- Hero Panel -->
+  <!-- HERO Section -->
   <section class="panel panel-hero" id="hero">
     <div class="intro-content">
       <h1 class="hero-title">
@@ -38,20 +41,19 @@
     </div>
   </section>
 
-  <!-- Philosophy Panel -->
+  <!-- Philosophy Section -->
   <section class="panel panel-text philosophy" id="philosophy">
     <div class="content">
       <h2>⸻ Philosophy</h2>
       <p>
-        My work challenges traditional portfolios.<br>
-        It moves, it breathes, it evolves as you scroll.<br>
-        Inspired by motion, memory, and immersion.<br>
-        Created not to display, but to feel.
+        This is not a gallery. It’s a living narrative.<br>
+        A body of work shaped by intuition, movement, and emotion.<br>
+        Designed to feel, not to follow convention.
       </p>
     </div>
   </section>
 
-  <!-- Gallery Panel -->
+  <!-- Gallery Section -->
   <section class="panel panel-gallery" id="works">
     <div class="section-header">
       <h2>⸻ Selected Works</h2>
@@ -64,7 +66,7 @@
     </div>
   </section>
 
-  <!-- Behind-the-Scenes Video Panel -->
+  <!-- Behind-the-Scenes Section -->
   <section class="panel panel-video" id="bts">
     <video class="bts-video" autoplay muted loop playsinline>
       <source src="assets/videos/behind-the-scenes.mp4" type="video/mp4" />
@@ -76,18 +78,19 @@
     </div>
   </section>
 
-  <!-- Contact / Footer Panel -->
+  <!-- Contact Section -->
   <section class="panel panel-footer" id="contact">
     <div class="footer-content">
       <h2>⸻ Let’s Collaborate</h2>
-      <p>Whether you're a creative, a brand, or a dreamer —<br>I'm open to projects, dialogue, and wild ideas.</p>
+      <p>Available for creative partnerships, commissions, and storytelling campaigns.</p>
       <p class="contact-info">
-        <a href="mailto:you@example.com">you@example.com</a> &nbsp; | &nbsp; <a href="https://instagram.com/yourhandle" target="_blank">@yourhandle</a>
+        <a href="mailto:you@example.com">you@example.com</a> |
+        <a href="https://instagram.com/yourhandle" target="_blank">@yourhandle</a>
       </p>
     </div>
   </section>
 
-  <!-- Modal for FLIP Gallery View -->
+  <!-- Gallery Modal (FLIP) -->
   <div id="gallery-modal" class="gallery-modal">
     <div class="modal-content">
       <img id="modal-img" src="" alt="Preview" />
@@ -98,6 +101,6 @@
   <!-- Scripts -->
   <script src="assets/js/main.js"></script>
   <script src="assets/js/scroll.js"></script>
-
+  <script src="assets/js/background.js"></script> <!-- Optional WebGL mesh -->
 </body>
 </html>
